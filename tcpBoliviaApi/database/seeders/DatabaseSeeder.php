@@ -14,11 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class, // Añadir esta línea
+            UserSeeder::class, // agregado por Giancarlos
             DepartamentosSeeder::class,
             MunicipiosSeeder::class,
             AccionesConstitucionalesSeeder::class,
             SubtiposAccionesSeeder::class,
+            TiposResoluciones2Seeder::class,
+            TiposResolucionesSeeder::class,
+            resEmisorSeeder::class,
         ]);
     }
 }

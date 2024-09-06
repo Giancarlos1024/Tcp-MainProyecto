@@ -14,17 +14,19 @@ class Caso extends Model
 
     protected $fillable = [
         'exp',
+        'sala',
         'accion_const_id',//para el subtipo
         'accion_const2_id',//para el tipo de accion
+        'res_emidor_id',
         'departamento_id',
         'municipio_id',
         'fecha_ingreso',
     ];
 
 
-    public function sala()
+    public function resEmisor()
     {
-        return $this->belongsTo(sala::class, 'sala_id');
+        return $this->belongsTo(ResEmisor::class, 'res_emisor_id');
     }
     public function accionConstitucional()
     {
