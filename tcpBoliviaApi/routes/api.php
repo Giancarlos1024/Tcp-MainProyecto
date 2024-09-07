@@ -15,6 +15,10 @@ use App\Http\Controllers\Api\AuthController;
 // routes/api.php
 use App\Http\Controllers\UserController;
 
+// routes/api.php
+use App\Http\Controllers\ExcelController;
+
+Route::post('/upload', [ExcelController::class, 'upload']);
 
 /*
 |--------------------------------------------------------------------------

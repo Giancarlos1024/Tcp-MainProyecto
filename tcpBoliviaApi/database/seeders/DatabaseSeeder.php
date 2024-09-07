@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             SubtiposAccionesSeeder::class,
             TiposResoluciones2Seeder::class,
             TiposResolucionesSeeder::class,
-            resEmisorSeeder::class,
+            ResEmisorSeeder::class,
+            ExcelDBRegistrosSeeder::class, 
         ]);
     }
 }

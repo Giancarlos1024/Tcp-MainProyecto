@@ -53,27 +53,36 @@ const FormularioExcel = () => {
   // Enviar archivo a la base de datos
   const handleFileUpload = async () => {
     if (!selectedFile) {
-      alert('Por favor, selecciona un archivo primero.');
-      return;
+        alert('Por favor, selecciona un archivo primero.');
+        return;
     }
 
     const formData = new FormData();
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setIsFileUploaded(true);
-      alert('Archivo subido exitosamente.');
-      console.log(response.data);
+        const response = await axios.post('http://localhost:8000/api/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        setIsFileUploaded(true);
+        alert('Archivo subido exitosamente.');
+        console.log(response.data);
     } catch (error) {
-      console.error('Error subiendo el archivo:', error);
-      alert('Error al subir el archivo.');
+        console.error('Error subiendo el archivo:', error);
+        if (error.response) {
+            alert('Error al subir el archivo: ' + error.response.data.error);
+        } else if (error.request) {
+            alert('Error en la solicitud: ' + error.message);
+        } else {
+            alert('Error: ' + error.message);
+        }
     }
-  };
+};
+
+  
+  
 
   return (
     <Box sx={{ p: 2, textAlign: 'center' }}>
